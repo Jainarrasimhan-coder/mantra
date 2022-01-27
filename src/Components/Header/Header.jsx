@@ -7,15 +7,8 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import AppsOutageIcon from '@mui/icons-material/AppsOutage';
 import SearchIcon from '@mui/icons-material/Search';
 const Header = () => {
-
-
-
     return (
-
         <div>
-
-
-
 
             <Navbar bg="light" expand="lg">
                 <Container fluid>
