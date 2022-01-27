@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Container, Card, Image, Button, Body } from "react-bootstrap";
 import axios from "axios";
 
-const Mainbar = ({ name }) => {
-
-
-
+const Mainbar = ({ name, setdata }) => {
 
     return <div>
 
@@ -13,7 +10,7 @@ const Mainbar = ({ name }) => {
             <Container>
                 <Row>
                     {
-                        name.products.map(item => {
+                        name.map(item => {
                             return (
                                 <Col md={3}>
                                     <Card>

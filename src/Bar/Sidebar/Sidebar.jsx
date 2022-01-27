@@ -2,41 +2,45 @@ import React, { useEffect, useState } from 'react';
 import "./sidebar.css";
 import SearchIcon from '@mui/icons-material/Search';
 
-const Sidebar = ({ name }) => {
+const Sidebar = ({ name, setdata, allproducts }) => {
 
-    const [data, setdata] = useState([]);
 
     const menhandler = () => {
-        const productlist = name.products;
+        const productlist = allproducts;
         let store = productlist.filter(i => {
-            if (i.gender == "Men") {
-                setdata(productlist[i])
-                console.log(data)
-
+            if (i.gender === "Men") {
                 return (i)
             }
         }
         )
-        console.log(data)
+
+        console.log(store)
+        setdata(store);
+
     }
 
     const womenhandler = () => {
-        const productlist = name.products;
+        const productlist = allproducts;
         let store = productlist.filter(i => {
-            if (i.gender == "Women") {
+            if (i.gender === "Women") {
+                console.log(i)
                 return i
             }
         }
         )
+        setdata(store);
+
     }
     const boyhandler = () => {
-        const productlist = name.products;
+        const productlist = allproducts;
         let store = productlist.filter(i => {
-            if (i.gender == "Unisex") {
+            if (i.gender === "Unisex") {
                 return i
             }
         }
         )
+        setdata(store);
+
     }
 
     return (
@@ -63,7 +67,7 @@ const Sidebar = ({ name }) => {
                 </div>
                 <div className='radio'>
                     {
-                        name.products.map(({ productId, category, inventoryInfo }) => {
+                        name.map(({ productId, category, inventoryInfo }) => {
                             return (
                                 <div>
                                     < input type="checkbox" id={productId} name="vehicle1" value="t shirts" />
@@ -87,7 +91,7 @@ const Sidebar = ({ name }) => {
                 </div>
                 <div className='radio'>
                     {
-                        name.products.map(({ productId, brand }) => {
+                        name.map(({ productId, brand }) => {
                             return (
                                 <div>
                                     < input type="checkbox" id={productId} name="vehicle1" value="t shirts" />

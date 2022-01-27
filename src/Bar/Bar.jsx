@@ -7,10 +7,12 @@ import axios from "axios";
 const Bar = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setdata] = useState([]);
+    const [allproducts, setallproducts] = useState([]);
 
     useEffect(() => {
         axios.get("https://demo7303877.mockable.io/").then(response => {
-            setdata(response.data);
+            setdata(response.data.products);
+            setallproducts(response.data.products);
             setLoading(false);
 
         })
@@ -24,11 +26,11 @@ const Bar = () => {
 
         <div className='pagewrap'>
             <div className='sidebarwrap'>
-                <Sidebar name={data} />
+                <Sidebar name={data} setdata={setdata} allproducts={allproducts} />
 
             </div>
             <div className='mainbarwrap'>
-                <Mainbar name={data} />
+                <Mainbar name={data} setdata={setdata} />
 
             </div>
         </div>
